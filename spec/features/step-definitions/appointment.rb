@@ -9,14 +9,14 @@ end
 
 Wenn /^ich verfuegbare Termine fuer "(.*?)" ansehe$/ do |treatment|
   visit_page AppointmentPage do |page|
-    page.list_appointments_for_treatment(treatment)
+    page.appointments_for_treatment = treatment
   end
 end
 
 Und /^ich den Termin fuer "(.*?)" am "(.*?)" waehle$/ do |time, date|
   on_page AppointmentPage do |page|
-    page.select_time(time)
-    page.select_date(date)
+    page.appointment_time = time
+    page.appointment_date = date
     page.book_appointment
   end
 end
