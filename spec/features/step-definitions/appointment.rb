@@ -22,6 +22,9 @@ Und /^ich den Termin fuer "(.*?)" am "(.*?)" waehle$/ do |time, date|
 end
 
 Dann /^habe ich einen Termin fuer "(.*?)" Uhr am "(.*?)" fuer "(.*?)" fuer meinen Hund "(.*?)"$/ do |time, date, treatment, pet_name|
-    pending # express the regexp above with the code you wish you had
-  # @current_persona
+  appointment = YAML.load_file(APPOINTMENT_FILE)
+  appointment['treatment'].should == treatment
+  appointment['time'].should == time
+  appointment['date'].should == date
+  appointment['pet_name'].should == pet_name
 end

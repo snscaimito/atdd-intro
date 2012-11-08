@@ -1,5 +1,8 @@
 require 'watir-webdriver'
 require 'page-object/page_factory'
+require 'rspec-expectations'
+
+APPOINTMENT_FILE = '../app/petclinic/target/appointment.yaml'
 
 browser = Watir::Browser.new
 

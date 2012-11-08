@@ -10,7 +10,4 @@ class AppointmentPage
   select_list(:appointment_date, :id => 'appointmentDate')
   button(:book_appointment, :id => 'bookAppointment')
 
-  def list_appointments_for_treatment(treatment)
-
-  end
 end
