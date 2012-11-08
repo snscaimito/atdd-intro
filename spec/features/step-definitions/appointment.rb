@@ -9,7 +9,8 @@ end
 
 Wenn /^ich verfuegbare Termine fuer "(.*?)" ansehe$/ do |treatment|
   visit_page AppointmentPage do |page|
-    page.appointments_for_treatment = treatment
+    page.pet_owner = @current_persona
+    page.appointment_for_treatment = treatment
   end
 end
 
@@ -17,6 +18,7 @@ Und /^ich den Termin fuer "(.*?)" am "(.*?)" waehle$/ do |time, date|
   on_page AppointmentPage do |page|
     page.appointment_time = time
     page.appointment_date = date
+    page.pet_name = @current_pet
     page.book_appointment
   end
 end
@@ -27,4 +29,5 @@ Dann /^habe ich einen Termin fuer "(.*?)" Uhr am "(.*?)" fuer "(.*?)" fuer meine
   appointment['time'].should == time
   appointment['date'].should == date
   appointment['pet_name'].should == pet_name
+  appointment['pet_owner'].should == @current_persona
 end

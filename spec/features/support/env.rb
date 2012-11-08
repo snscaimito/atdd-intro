@@ -8,6 +8,8 @@ browser = Watir::Browser.new
 
 Before do
   @browser = browser
+
+  File.delete(APPOINTMENT_FILE) if File.exists?(APPOINTMENT_FILE)
 end
 
 at_exit do
